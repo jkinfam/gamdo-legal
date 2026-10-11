@@ -127,6 +127,7 @@ code {
 쓸 수 있습니다. 밝힌 성별은 다른 이용자에게 보이지 않습니다.</p>
 <p><strong>구글·애플 로그인에서 받는 것</strong>: 계정 고유번호와 이메일 주소만 저장합니다.
 구글은 로그인할 때 이름과 프로필 사진도 함께 보내오지만, 저장하지 않고 그 자리에서 버립니다.
+애플 로그인은 이메일만 요청하며, "이메일 가리기"를 고르면 애플이 만든 전달용 주소를 받습니다.
 구글 계정의 다른 정보(연락처, 드라이브, 캘린더, Gmail 등)에는 접근하지 않습니다.
 받은 정보는 로그인과 계정 식별에만 쓰며, 판매하거나 제3자에게 제공하지 않습니다.</p>
 <p><strong>본인확인기관을 통한 본인확인을 하지 않습니다.</strong> 나이는 이용자의 자기신고에 의존하며,
@@ -204,7 +205,7 @@ code {
 재생 중인 이용자를 위해 1시간 유예를 둔 뒤 저장소에서 삭제합니다.
 열려 있던 교신방은 상대에게서도 닫힙니다.</p>
 <p><strong>이용 제한 중에 탈퇴하면</strong> 같은 계정으로 다시 가입해 제한을 피하는 것을 막기 위해
-계정 식별값(구글·애플이 주는 고유 번호)의 <strong>해시값</strong>과 제한 종료일만 남깁니다.
+계정 식별값(구글·애플이 주는 고유 번호. 둘 다 연결했다면 각각)의 <strong>해시값</strong>과 제한 종료일만 남깁니다.
 원래 식별값과 이메일 주소는 남기지 않습니다. 제한이 없던 이용자는 아무것도 남지 않습니다.</p>
 <p><strong>유예 시간(1시간)을 두는 이유</strong>: 만료 직전에 수신한 이용자가 아직 재생 중일 수 있어,
 재생 도중 음성이 사라지지 않도록 하기 위함입니다.</p>
@@ -238,6 +239,12 @@ code {
 <td>Google LLC</td>
 <td>푸시 알림 발송</td>
 <td>푸시 토큰, 알림 문구</td>
+<td>미국</td>
+</tr>
+<tr>
+<td>Apple Inc.</td>
+<td>아이폰 푸시 알림 전달, 탈퇴 시 애플 로그인 연결 해지</td>
+<td>푸시 토큰, 알림 문구, 애플 로그인 확인 코드(해지할 때만)</td>
 <td>미국</td>
 </tr>
 <tr>
@@ -347,7 +354,7 @@ OpenAI 는 받은 음성을 텍스트로 바꾼 뒤 보관하지 않으며, 모�
 <tbody>
 <tr>
 <td>2026년 10월 18일</td>
-<td>답신 음성의 보유 기간에 상한을 두었습니다. 이전에는 받는 사람이 재생할 때까지(재생하지 않으면 탈퇴할 때까지) 보관했고, 이제 재생하지 않은 답신은 도착 후 7일이 지나면 1시간 유예를 두고 파기합니다. 10월 18일 전에 도착한 답신도 10월 18일 전에는 파기하지 않습니다</td>
+<td>① 답신 음성의 보유 기간에 상한을 두었습니다. 이전에는 받는 사람이 재생할 때까지(재생하지 않으면 탈퇴할 때까지) 보관했고, 이제 재생하지 않은 답신은 도착 후 7일이 지나면 1시간 유예를 두고 파기합니다. 10월 18일 전에 도착한 답신도 10월 18일 전에는 파기하지 않습니다 ② 아이폰 앱을 내기 위해 국외 이전에 Apple Inc.(아이폰 푸시 알림 전달, 탈퇴 시 애플 로그인 연결 해지)를 더했습니다 ③ 이용 제한 중 탈퇴하면 남기는 식별값 해시를, 구글·애플을 함께 연결했다면 각각 남긴다고 밝혔습니다</td>
 </tr>
 <tr>
 <td>2026년 10월 1일</td>
@@ -365,6 +372,8 @@ OpenAI 는 받은 음성을 텍스트로 바꾼 뒤 보관하지 않으며, 모�
 <li><strong>What we store</strong> — your Google account ID and email address only.</li>
 <li><strong>How we use it</strong> — to sign you in and identify your account. Other users only ever see an
   automatically issued callsign, never your name, email or photo.</li>
+<li><strong>Sign in with Apple</strong> — we request your email address only, never your name. If you choose
+  Hide My Email, we receive Apple's relay address.</li>
 <li><strong>Sharing</strong> — we do not sell or share Google user data. It is kept with our processor
   Supabase (servers in Seoul, Korea; see section 5).</li>
 <li><strong>Deletion</strong> — deleting your account (in the app: power button → 폐국 (회원 탈퇴), or via
